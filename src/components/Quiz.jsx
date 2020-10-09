@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import _ from 'lodash'
 import { BsCheckCircle, BsCircle } from 'react-icons/bs'
+import { nanoid } from 'nanoid'
 
 const Quiz = ({ words }) => {
     const [index, setIndex] = useState(0)
@@ -23,7 +24,7 @@ const Quiz = ({ words }) => {
                     <div className="list-group">
                         {
                             answers.map((answer) => (
-                                <QuizAnswer key={answer.id} answer={answer} id={words[index].id} />
+                                <QuizAnswer key={nanoid()} answer={answer} id={words[index].id} />
                             ))
                         }
                     </div>
