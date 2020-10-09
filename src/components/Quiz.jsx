@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import _ from 'lodash'
 import { BsCheckCircle, BsCircle } from 'react-icons/bs'
 import { nanoid } from 'nanoid'
 
 const Quiz = ({ words }) => {
     const [index, setIndex] = useState(0)
-    const fillers = _.shuffle(words.filter(f => f.id !== words[index].id))
-    const answers = _.shuffle([words[index], ...fillers.slice(0, 3)])
+    const double = [...words, ...words]
+    const fillers = _.shuffle(double.filter(f => f.id !== double[index].id))
+    const answers = _.shuffle([double[index], ...fillers.slice(0, 3)])
+    const toEN = index < 10 ? true : false
 
     return (
         <div className="card">
             <div className="p-3">
-                <div>
-                    <span style={{
-                        fontSize: '34px',
-                        fontWeight: '600',
-                        marginRight: '0.75rem'
-                    }}>{words[index].vKana}</span>
-                    <span>[ {words[index].vExp} ]</span>
-                </div>
+                <QuizQuestion question={double[index]} toEN={toEN} />
 
                 <div className="p-2">
                     <div className="list-group">
                         {
                             answers.map((answer) => (
-                                <QuizAnswer key={nanoid()} answer={answer} id={words[index].id} />
+                                <QuizAnswer
+                                    key={nanoid()}
+                                    answer={answer}
+                                    id={double[index].id}
+                                    toEN={toEN}
+                                />
                             ))
                         }
                     </div>
@@ -34,7 +34,7 @@ const Quiz = ({ words }) => {
                     <button
                         className="btn btn-sm btn-outline-success"
                         onClick={() => { setIndex(index + 1) }}
-                        disabled={index === 9}
+                        disabled={index === 19}
                     >
                         Next
                     </button>
@@ -44,7 +44,29 @@ const Quiz = ({ words }) => {
     )
 }
 
-const QuizAnswer = ({ answer, id }) => {
+const QuizQuestion = ({ question, toEN }) => {
+    return (
+        <div>
+            {toEN ?
+                <Fragment>
+                    <span style={{
+                        fontSize: '34px',
+                        fontWeight: '600',
+                        marginRight: '0.75rem'
+                    }}>{question.vKana}</span>
+                    <span>[ {question.vExp} ]</span>
+                </Fragment>
+                : <span style={{
+                    fontSize: '30px',
+                    fontWeight: '600',
+                    marginLeft: '0.75rem'
+                }}>{question.vMean}</span>
+            }
+        </div>
+    )
+}
+
+const QuizAnswer = ({ answer, id, toEN }) => {
     const [isCorrect, setIsCorrect] = useState(undefined)
 
     useEffect(() => {
@@ -59,7 +81,9 @@ const QuizAnswer = ({ answer, id }) => {
             onClick={() => { setIsCorrect(answer.id === id) }}
         >
             {isCorrect ?
-                <BsCheckCircle fill="#17A267" size={22} /> : <BsCircle size={18} />} {answer.vMean}
+                <BsCheckCircle fill="#17A267" size={22} />
+                : <BsCircle size={18} />} {toEN ? answer.vMean
+                : answer.vKana + ' [' + answer.vExp + ']'}
         </button>
     )
 }
