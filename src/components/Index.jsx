@@ -1,8 +1,8 @@
 import React from 'react'
 import Select from 'react-select'
+import { BsHouse } from 'react-icons/bs'
 
 import Board from './Board'
-// import Quiz from './Quiz'
 
 class Index extends React.Component {
     constructor() {
@@ -64,23 +64,34 @@ class Index extends React.Component {
         }
 
         return (
-            <div className="container mt-4">
+            <div className="container">
+                <nav className="navbar navbar-light bg-dark mb-2">
+                    <div className="d-flex justify-content-center" style={{ width: '100%' }}>
+                        <h4 className="text-white">Learn Japanese Vocabulary</h4>
+                    </div>
+                </nav>
                 <div className="d-flex justify-content-center">
                     <div className="col-xl-8 col-md-10 col-xs-12">
                         {show ?
                             <div>
-                                <div onClick={this.handleClick} className="my-2">
-                                    {
-                                        levelBtn.map((lv, ilv) => (
-                                            <button
-                                                key={ilv}
-                                                id={lv}
-                                                className="btn btn-success btn-sm mr-1 mb-1"
-                                            >
-                                                {lv * 1000} words
-                                            </button>
-                                        ))
-                                    }
+                                <div className="d-flex justify-content-center">
+                                    <div
+                                        onClick={this.handleClick}
+                                        role="group"
+                                        className="btn-group my-2"
+                                    >
+                                        {
+                                            levelBtn.map((lv, ilv) => (
+                                                <button
+                                                    key={ilv}
+                                                    id={lv}
+                                                    className="btn btn-dark"
+                                                >
+                                                    {lv}
+                                                </button>
+                                            ))
+                                        }
+                                    </div>
                                 </div>
                                 <Select
                                     options={options}
@@ -91,10 +102,15 @@ class Index extends React.Component {
                             </div>
                             : <div className="mt-2">
                                 <Board words={words.slice((value * 10 - 10), value * 10)} />
-                                <button onClick={() => { this.setState({ show: true }) }}>
-                                    Back
-                                </button>
-                              </div>
+                                <div>
+                                    <button
+                                        className="btn btn-light btn-block mt-4"
+                                        onClick={() => { this.setState({ show: true }) }}
+                                    >
+                                        <BsHouse size={20} className="mb-1" /> Back to homepage
+                                    </button>
+                                </div>
+                            </div>
                         }
                     </div>
                 </div>

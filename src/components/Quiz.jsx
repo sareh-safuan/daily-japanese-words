@@ -10,22 +10,34 @@ const Quiz = ({ words }) => {
     return (
         <div className="card">
             <div className="p-3">
-                <h2>{words[index].vKana}</h2>
-
-                <div className="list-group">
-                    {
-                        answers.map((answer) => (
-                            <QuizAnswer key={answer.id} answer={answer} id={words[index].id} />
-                        ))
-                    }
+                <div>
+                    <span style={{
+                        fontSize: '34px',
+                        fontWeight: '600',
+                        marginRight: '0.75rem'
+                    }}>{words[index].vKana}</span>
+                    <span>[ {words[index].vExp} ]</span>
                 </div>
 
-                <button
-                    onClick={() => { setIndex(index + 1) }}
-                    disabled={index === 9}
-                >
-                    Next
-                </button>
+                <div className="p-2">
+                    <div className="list-group">
+                        {
+                            answers.map((answer) => (
+                                <QuizAnswer key={answer.id} answer={answer} id={words[index].id} />
+                            ))
+                        }
+                    </div>
+                </div>
+
+                <div className="mt-2 ml-2">
+                    <button
+                        className="btn btn-sm btn-outline-success"
+                        onClick={() => { setIndex(index + 1) }}
+                        disabled={index === 9}
+                    >
+                        Next
+                    </button>
+                </div>
             </div>
         </div>
     )
@@ -45,8 +57,8 @@ const QuizAnswer = ({ answer, id }) => {
             className="list-group-item list-group-item-action"
             onClick={() => { setIsCorrect(answer.id === id) }}
         >
-            {isCorrect?
-                <BsCheckCircle fill="#17A267" size={22}/>:<BsCircle size={18}/>} {answer.vMean}
+            {isCorrect ?
+                <BsCheckCircle fill="#17A267" size={22} /> : <BsCircle size={18} />} {answer.vMean}
         </button>
     )
 }

@@ -1,20 +1,25 @@
-import React, { Fragment, useState } from 'react'
+import React, { useState } from 'react'
 import _ from 'lodash'
 
 import Lesson from './Lesson'
 import Quiz from './Quiz'
 
-const Board = ({words}) => {
+const Board = ({ words }) => {
     const [learn, setLearn] = useState(true)
 
     return (
-        <Fragment>
-            {learn ? <Lesson words={words} /> : <Quiz words={_.shuffle(words)} /> }
+        <div className="card shadow">
+            {learn ? <Lesson words={words} /> : <Quiz words={_.shuffle(words)} />}
 
-            <button onClick={() => { setLearn(!learn) }}>
-                { learn ? "Quiz" : "Learn" }
-            </button>
-        </Fragment>
+            <div className="card-footer">
+                <button
+                    className="btn btn-block btn-outline-dark"
+                    onClick={() => { setLearn(!learn) }}
+                >
+                    {learn ? "Take Quiz" : "Learn"}
+                </button>
+            </div>
+        </div>
     )
 }
 
