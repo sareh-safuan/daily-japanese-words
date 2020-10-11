@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9c9bd6f54ed0d310e02f7bb50fcd64d7",
+    "revision": "af56e3bcd65651b2d20802a3141fbc45",
     "url": "/daily-japanese-words/index.html"
   },
   {
-    "revision": "08b2386b4ba2687bbe7c",
+    "revision": "f4f283147c4a1bd90a45",
     "url": "/daily-japanese-words/static/css/main.d37f3d3a.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/daily-japanese-words/static/js/2.0428e93b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "08b2386b4ba2687bbe7c",
-    "url": "/daily-japanese-words/static/js/main.ddb1964f.chunk.js"
+    "revision": "f4f283147c4a1bd90a45",
+    "url": "/daily-japanese-words/static/js/main.abf050dc.chunk.js"
   },
   {
     "revision": "821b4b20bc3c93096b0a",

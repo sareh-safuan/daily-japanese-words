@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/daily-japanese-words/static/css/main.d37f3d3a.chunk.css",
-    "main.js": "/daily-japanese-words/static/js/main.ddb1964f.chunk.js",
-    "main.js.map": "/daily-japanese-words/static/js/main.ddb1964f.chunk.js.map",
+    "main.js": "/daily-japanese-words/static/js/main.abf050dc.chunk.js",
+    "main.js.map": "/daily-japanese-words/static/js/main.abf050dc.chunk.js.map",
     "runtime-main.js": "/daily-japanese-words/static/js/runtime-main.8cf6c820.js",
     "runtime-main.js.map": "/daily-japanese-words/static/js/runtime-main.8cf6c820.js.map",
     "static/js/2.0428e93b.chunk.js": "/daily-japanese-words/static/js/2.0428e93b.chunk.js",
     "static/js/2.0428e93b.chunk.js.map": "/daily-japanese-words/static/js/2.0428e93b.chunk.js.map",
     "index.html": "/daily-japanese-words/index.html",
-    "precache-manifest.227b04f2093dce643ec29e606bde941b.js": "/daily-japanese-words/precache-manifest.227b04f2093dce643ec29e606bde941b.js",
+    "precache-manifest.e6caeb01bec3d5e14eaad67a33c50962.js": "/daily-japanese-words/precache-manifest.e6caeb01bec3d5e14eaad67a33c50962.js",
     "service-worker.js": "/daily-japanese-words/service-worker.js",
     "static/css/main.d37f3d3a.chunk.css.map": "/daily-japanese-words/static/css/main.d37f3d3a.chunk.css.map",
     "static/js/2.0428e93b.chunk.js.LICENSE.txt": "/daily-japanese-words/static/js/2.0428e93b.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.8cf6c820.js",
     "static/js/2.0428e93b.chunk.js",
     "static/css/main.d37f3d3a.chunk.css",
-    "static/js/main.ddb1964f.chunk.js"
+    "static/js/main.abf050dc.chunk.js"
   ]
 }
