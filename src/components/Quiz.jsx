@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid'
 const Quiz = ({ words }) => {
     const [index, setIndex] = useState(0)
     const double = [...words, ...words]
-    const fillers = _.shuffle(double.filter(f => f.id !== double[index].id))
+    const fillers = _.shuffle(words.filter(f => f.id !== double[index].id))
     const answers = _.shuffle([double[index], ...fillers.slice(0, 3)])
     const toEN = index < 10 ? true : false
 
