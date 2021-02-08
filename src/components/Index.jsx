@@ -2,6 +2,7 @@ import React from 'react'
 import Select from 'react-select'
 import { BsHouse } from 'react-icons/bs'
 
+import Note from './Note'
 import Board from './Board'
 
 class Index extends React.Component {
@@ -72,21 +73,18 @@ class Index extends React.Component {
                 </nav>
                 <div className="d-flex justify-content-center">
                     <div className="col-xl-8 col-md-10 col-xs-12">
-                        {show ?
-                            <div>
+                        {show
+                            ? <div>
                                 <div className="d-flex justify-content-center">
                                     <div
                                         onClick={this.handleClick}
                                         role="group"
-                                        className="btn-group my-2"
-                                    >
-                                        {
-                                            levelBtn.map((lv, ilv) => (
+                                        className="btn-group my-2">
+                                        {levelBtn.map((lv, ilv) => (
                                                 <button
                                                     key={ilv}
                                                     id={lv}
-                                                    className="btn btn-dark"
-                                                >
+                                                    className="btn btn-dark">
                                                     {lv}
                                                 </button>
                                             ))
@@ -99,6 +97,7 @@ class Index extends React.Component {
                                     placeholder="Select level"
                                     value={options.filter(opts => (opts.value === value))}
                                 />
+                                <Note />
                             </div>
                             : <div className="mt-2">
                                 <Board words={words.slice((value * 10 - 10), value * 10)} />
